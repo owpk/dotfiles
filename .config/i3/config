@@ -8,7 +8,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id ~/.config/scripts/powersave.sh
-
+exec_always --no-startuo-id xbindkeys
 #---Basic Definitions---# #
 smart_gaps on
 smart_borders on

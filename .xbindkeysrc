@@ -39,12 +39,8 @@
 
 # Examples of commands:
 
-"xbindkeys_show" 
-  control+shift + q
 
 # set directly keycode (here control + f with my keyboard)
-"xterm"
-  c:41 + m:0x4
 
 # Увеличить громкость звука
 "pactl set-sink-volume @DEFAULT_SINK@ +1000"
@@ -61,10 +57,6 @@
 # Уменьшить яркость
 "xbacklight -dec 10"
    XF86MonBrightnessDown
-
-# specify a mouse button
-"xterm"
-  control + b:2
 
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
