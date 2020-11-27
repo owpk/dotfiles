@@ -3,12 +3,12 @@ font pango:Hack 9
 
 # This config file will use environment variables such as $BROWSER and $TERMINAL.
 exec_always --no-startup-id xset r rate  200 30
-exec_always --no-startup-id feh --bg-fill $HOME/PAPKA/PICTURES/wallpapers/nature/macos-big-sur-dark.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/PAPKA/PICTURES/wallpapers/deep-blue.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id picom -b
-exec_always --no-startup-id ~/.config/scripts/powersave.sh
-exec_always --no-startuo-id xbindkeys
+exec_always --no-startup-id dunst
+
 #---Basic Definitions---# #
 smart_gaps on
 smart_borders on
@@ -50,12 +50,12 @@ bindsym $mod+q			    [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
 # w
-bindsym $mod+w 			    exec /home/owpk/.config/scripts/chrom.sh
+bindsym $mod+w 			exec /home/owpk/.config/scripts/chrom.sh
 bindsym $mod+Shift+w 		exec /home/owpk/.config/scripts/trnsl.sh
 
 # e
-bindsym $mod+e 			    exec --no-startup-id $lock
-bindsym $mod+Shift+e		exec --no-startup-id $suspend
+bindsym $mod+e 			exec /home/owpk/.config/scripts/translate.sh ru
+bindsym $mod+Shift+e 		exec /home/owpk/.config/scripts/translate.sh en
 
 # r
 bindsym $mod+r 			    exec $term -e ranger
@@ -118,7 +118,7 @@ bindsym $mod+Shift+l	move right 30
 bindsym $mod+Ctrl+l		move workspace to output right
 
 # x
-bindsym $mod+x 			exec --no-startup-id $reboot
+bindsym $mod+x 			exec --no-startup-id 
 bindsym $mod+Shift+x	exec --no-startup-id $shutdown
 
 # c
@@ -139,6 +139,9 @@ bindsym $mod+b			exec --no-startup-id feh --bg-fill --randomize ~/PAPKA/PICTURES
 bindsym $mod+m		    exec --no-startup-id spotify
 bindsym $mod+Shift+m	exec --no-startup-id discord
 
+# space
+bindsym $mod+space          exec --no-startup-id dunstctl history-pop
+bindsym $mod+Shift+space   exec --no-startup-id dunstctl close
 
 # #---Workspace Bindings---# #
 bindsym $mod+Tab		    exec --no-startup-id rofi-menu-windows
@@ -217,12 +220,14 @@ bindsym $mod+Ctrl+Right		move workspace to output left
 bindsym $mod+[  exec --no-startup-id playerctl previous spotify ю
 bindsym $mod+.  exec --no-startup-id playerctl next spotify
 
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% #increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% 
 # bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+   
 # Window borders
-client.focused          #5e35b1 #00897b #ffffff #2e9ef4   #f007c1
+client.focused          #5C8286 #5C8286 #ffffff #2e9ef4   #d81b60
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
